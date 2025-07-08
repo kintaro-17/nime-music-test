@@ -51,7 +51,6 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
       {/* Header */}
       <div className="px-3 justify-center items-center text-center py-2 border-b  border-white/10 bg-black/20">
         <h3 className="text-white text-sm font-semibold">Lyrics</h3>
-        <p className="text-xs text-gray-400 truncate">{track.title} — {track.artist}</p>
       </div>
 
       {/* Lyrics content */}

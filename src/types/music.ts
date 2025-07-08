@@ -12,6 +12,7 @@ export interface Track {
   audioSrc: string;
   videoBgSrc?: string;
   lyrics: LyricLine[];
+
 }
 
 export interface PlayerState {

@@ -195,7 +195,7 @@ const handleEnded = () => {
 
   if (!showPlayer) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900 px-7 sm:px-8 lg:px-9">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black-5 to-purple-900 px-7 sm:px-8 lg:px-9">
 
 
 
