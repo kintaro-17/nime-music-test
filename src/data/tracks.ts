@@ -10,8 +10,8 @@ export const tracks: Track[] = [
     artist: "Chase Atlantic",
     album: "Beauty in Death",
     albumArtUrl: "https://tse3.mm.bing.net/th?id=OIP.VwivM--7Xx_SmgsqXBLi8AAAAA&pid=Api&P=0&h=220",
-    audioSrc: "./src/data/audio/consume.mp3",
-    videoBgSrc: "./src/data/videos/consume.mp4",
+    audioSrc: "./data/audio/consume.mp3",
+    videoBgSrc: "./data/videos/consume.mp4",
     lyrics: [
       { time: 0.8, text: "She said, Careful, or you'll lose it" },
       { time: 4, text: "But, girl, I'm only human," },
@@ -36,8 +36,8 @@ export const tracks: Track[] = [
     artist: "Aimer",
     album: "Unknown", // Puedes actualizar esto si sabes el nombre
     albumArtUrl: "https://i.ytimg.com/vi/2u4HTNLqe1A/maxresdefault.jpg", // Sugerida desde el video
-    audioSrc: "./src/data/audio/1.mp3",
-    videoBgSrc: "./src/data/videos/1.mp4",
+    audioSrc: "./data/audio/1.mp3",
+    videoBgSrc: "./data/videos/1.mp4",
 lyrics: [
   { time: 34.4, text: "Como la puesta de sol y volver a levantarse\nComo flores marchitando y floreciendo de nuevo" },
   { time: 42.2, text: "Todas las cosas vienen en círculo completo y\nTodas las cosas vuelven a su antiguo yo" },
@@ -79,8 +79,8 @@ lyrics: [
     artist: "Keina Suda",
     album: "Porte",
     albumArtUrl: "https://www.animate.shop/cdn/shop/products/resize_image_0fc4dd9c-c572-4016-a55f-164732a1931f.jpg?v=1619554916", // Pon aquí la URL correcta si tienes
-    audioSrc: "./src/data/videos/veil/music.mp3",
-    videoBgSrc: "./src/data/videos/veil/video.mp4",
+    audioSrc: "./data/videos/veil/music.mp3",
+    videoBgSrc: "./data/videos/veil/video.mp4",
     lyrics: [
       { time: 0.775, text: "Incluso si busco en estos días solemnes," },
       { time: 3.945, text: "Incluso si maldigo el presente inmutable," },
@@ -142,8 +142,8 @@ lyrics: [
   artist: "Exrage",
   album: "Gerudo Valley Fiesta",
   albumArtUrl: "https://cdn-images.dzcdn.net/images/cover/ec793a2a795f6250f1b50462384b6cec/0x1900-000000-80-0-0.jpg", // reemplaza con URL real si tienes
-  audioSrc: "./src/data/videos/zelda/music.mp3",
-  videoBgSrc: "./src/data/videos/zelda/video.mp4",
+  audioSrc: "./data/videos/zelda/music.mp3",
+  videoBgSrc: "./data/videos/zelda/video.mp4",
   lyrics: [
     { time: 2.937, text: "Wuuu..." },
     { time: 4.167, text: "*risa fuerte*" },
