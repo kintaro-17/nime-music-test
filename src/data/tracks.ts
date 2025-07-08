@@ -5,32 +5,6 @@ import { Track } from '../types/music';
 
 export const tracks: Track[] = [
   {
-    id: 1,
-    title: "Consume",
-    artist: "Chase Atlantic",
-    album: "Beauty in Death",
-    albumArtUrl: "https://tse3.mm.bing.net/th?id=OIP.VwivM--7Xx_SmgsqXBLi8AAAAA&pid=Api&P=0&h=220",
-    audioSrc: "./data/audio/consume.mp3",
-    videoBgSrc: "./data/videos/consume.mp4",
-    lyrics: [
-      { time: 0.8, text: "She said, Careful, or you'll lose it" },
-      { time: 4, text: "But, girl, I'm only human," },
-      { time: 7, text: "And I know there's a blade where your heart is" },
-      { time: 10, text: "And you know how to use it" },
-      { time: 13, text: "And you can take my flesh if you want girl" },
-      { time: 16, text: "But, baby, don't abuse it (Calm down)" },
-      { time: 19, text: "These voices in my head screaming, Run now (Don't run)" },
-      { time: 22, text: "I'm praying that they're human" },
-      { time: 25, text: "Please understand that I'm trying my hardest" },
-      { time: 28, text: "My head's a mess, but I'm trying regardless" },
-      { time: 31, text: "Anxiety is one hell of a problem" },
-      { time: 34, text: "She's latching onto me, I can't resolve it" },
-      { time: 37, text: "It's not right, it's not fair, it's not fair" },
-      { time: 41.5, text: "It's not fair, it's not fair, it's not fair" },
-      { time: 47, text: "Oh, no, no, no, ooh-ooh" },
-    ]
-  },
-  {
     id: 2,
     title: "Dear My Past (Querido Mi Pasado)",
     artist: "Aimer",

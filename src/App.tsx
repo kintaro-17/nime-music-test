@@ -152,14 +152,33 @@ function App() {
     }));
   };
 
-  const handleEnded = () => {
-    if (playerState.isRepeating) {
-      handleSeek(0);
-    } else {
-      handleNext();
+const handleEnded = () => {
+  if (playerState.isRepeating) {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.error('Reproducción fallida al repetir:', error);
+        });
+      }
     }
-  };
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(error => {
+        console.error('Error al reproducir video al repetir:', error);
+      });
+    }
 
+    setPlayerState(prev => ({
+      ...prev,
+      currentTime: 0,
+      isPlaying: true, // <- Asegura estado "reproduciendo"
+    }));
+  } else {
+    handleNext();
+  }
+};
   useKeyboardShortcuts({
     onPlayPause: handlePlayPause,
     onNext: handleNext,
@@ -169,21 +188,19 @@ function App() {
     onMute: handleMute,
   });
 
-  // Auto-play first track on mount
-  useEffect(() => {
-    if (tracks.length > 0 && !playerState.currentTrack) {
-      handleTrackSelect(tracks[0]);
-    }
-  }, []);
+ 
+
+
+
 
   if (!showPlayer) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900 px-7 sm:px-8 lg:px-9">
 
 
 
         
-        <div className="container mx-auto max-w-8xl">
+        <div className="container mx-auto max-w-7xl">
           <TrackList
             tracks={tracks}
             currentTrack={playerState.currentTrack}
@@ -235,9 +252,9 @@ function App() {
         </button>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col justify-center items-center p-4 sm:p-6">
+        <div className="flex-1 flex flex-col justify-end items-center p-4 sm:p-6">
           <div className="w-full max-w-6xl flex flex-col h-full">
-            <CurrentTrackInfo track={playerState.currentTrack} />
+           
             
             <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 flex-1 min-h-0">
               {/* Lyrics Panel */}
@@ -248,31 +265,39 @@ function App() {
                 />
               </div>
             </div>
+
+
+            
           </div>
         </div>
 
         {/* Player Controls */}
         <div className="pb-safe">
-          <PlayerControls
-          isPlaying={playerState.isPlaying}
-          volume={playerState.volume}
-          isMuted={playerState.isMuted}
-          isShuffled={playerState.isShuffled}
-          playbackSpeed={playerState.playbackSpeed}
-          currentTime={playerState.currentTime}
-          duration={playerState.duration}
-          showVideo={playerState.showVideo}
-          onPlayPause={handlePlayPause}
-          onPrevious={handlePrevious}
-          onNext={handleNext}
-          onVolumeChange={handleVolumeChange}
-          onMute={handleMute}
-          onShuffleToggle={handleShuffleToggle}
-          onRepeatToggle={handleRepeatToggle}
-          onSeek={handleSeek}
-          onSpeedChange={handleSpeedChange}
-          onVideoToggle={handleVideoToggle}
-          />
+       <PlayerControls
+  songTitle={playerState.currentTrack?.title || ''}
+  artistName={playerState.currentTrack?.artist || ''}
+  albumName={playerState.currentTrack?.album || ''}
+  albumArtUrl={playerState.currentTrack?.albumArtUrl || ''}
+  isPlaying={playerState.isPlaying}
+  isMuted={playerState.isMuted}
+  volume={playerState.volume}
+  isShuffled={playerState.isShuffled}
+  isRepeating={playerState.isRepeating}
+  playbackSpeed={playerState.playbackSpeed}
+  currentTime={playerState.currentTime}
+  duration={playerState.duration}
+  showVideo={playerState.showVideo}
+  onPlayPause={handlePlayPause}
+  onPrevious={handlePrevious}
+  onNext={handleNext}
+  onVolumeChange={handleVolumeChange}
+  onMute={handleMute}
+  onShuffleToggle={handleShuffleToggle}
+  onRepeatToggle={handleRepeatToggle}
+  onSeek={handleSeek}
+  onSpeedChange={handleSpeedChange}
+  onVideoToggle={handleVideoToggle}
+/>
         </div>
       </div>
 

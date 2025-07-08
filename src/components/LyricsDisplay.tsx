@@ -41,7 +41,7 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
   if (!track?.lyrics) {
     return (
       <div className="h-full flex items-center justify-center text-center text-gray-400">
-        <p>No lyrics available</p>
+        <p>No tiene letra</p>
       </div>
     );
   }
@@ -49,7 +49,7 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
   return (
     <div className="relative h-[300px] md:h-[400px] w-full bg-black/10 rounded-lg overflow-hidden">
       {/* Header */}
-      <div className="px-3 py-2 border-b border-white/10 bg-black/20">
+      <div className="px-3 justify-center items-center text-center py-2 border-b  border-white/10 bg-black/20">
         <h3 className="text-white text-sm font-semibold">Lyrics</h3>
         <p className="text-xs text-gray-400 truncate">{track.title} — {track.artist}</p>
       </div>
@@ -85,9 +85,7 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
         <div className="h-12" />
       </div>
 
-      {/* Gradientes arriba y abajo para efecto visual */}
-      <div className="absolute top-0 left-0 right-0 h-6 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
+     
     </div>
   );
 };

@@ -1,221 +1,148 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import {
+  Shuffle,
+  SkipBack,
   Play,
   Pause,
-  SkipBack,
   SkipForward,
-  Shuffle,
-  Repeat
+  Repeat,
+  VolumeX,
+  Volume2,
+  Video,
+  VideoOff,
 } from 'lucide-react';
 
 interface PlayerControlsProps {
   songTitle: string;
   artistName: string;
+  albumName: string;
+  albumArtUrl: string;
   isPlaying: boolean;
+  isMuted: boolean;
+  volume: number;
   isShuffled: boolean;
   isRepeating: boolean;
+  playbackSpeed: number;
   currentTime: number;
   duration: number;
+  showVideo: boolean;
   onPlayPause: () => void;
   onPrevious: () => void;
   onNext: () => void;
+  onVolumeChange: (volume: number) => void;
+  onMute: () => void;
   onShuffleToggle: () => void;
   onRepeatToggle: () => void;
   onSeek: (time: number) => void;
+  onSpeedChange: (speed: number) => void;
+  onVideoToggle: () => void;
 }
 
 export const PlayerControls: React.FC<PlayerControlsProps> = ({
   songTitle,
   artistName,
+  albumName,
+  albumArtUrl,
   isPlaying,
+  isMuted,
+  volume,
   isShuffled,
   isRepeating,
+  playbackSpeed,
   currentTime,
   duration,
+  showVideo,
   onPlayPause,
   onPrevious,
   onNext,
+  onVolumeChange,
+  onMute,
   onShuffleToggle,
   onRepeatToggle,
   onSeek,
+  onSpeedChange,
+  onVideoToggle,
 }) => {
-  const progressBarRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-
-  // Formatear tiempo en mm:ss
   const formatTime = (time: number) => {
-    if (isNaN(time)) return '0:00';
     const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60)
-      .toString()
-      .padStart(2, '0');
+    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
     return `${minutes}:${seconds}`;
   };
 
-  // Seek al hacer click o drag en barra
-  const seekFromPosition = (clientX: number) => {
-    if (!progressBarRef.current) return;
-    const rect = progressBarRef.current.getBoundingClientRect();
-    let percent = (clientX - rect.left) / rect.width;
-    percent = Math.min(Math.max(percent, 0), 1);
-    onSeek(percent * duration);
+  const handleSeekChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onSeek(Number(e.target.value));
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    seekFromPosition(e.clientX);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    seekFromPosition(e.touches[0].clientX);
-  };
-
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging) {
-      seekFromPosition(e.clientX);
-    }
-  };
-
-  const handleTouchMove = (e: TouchEvent) => {
-    if (isDragging) {
-      seekFromPosition(e.touches[0].clientX);
-    }
-  };
-
-  const stopDragging = () => setIsDragging(false);
-
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', stopDragging);
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', stopDragging);
-    }
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', stopDragging);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', stopDragging);
-    };
-  }, [isDragging]);
+  const iconSize = 18;
 
   return (
-    <div className="max-w-md  mx-auto p-5 bg-black/60 backdrop-blur-md rounded-lg  text-white-900">
-    
-      {/* Barra de progreso */}
-      <div
-        ref={progressBarRef}
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}
-        className="relative h-2 bg-violet-900 rounded-full cursor-pointer"
-        aria-label="Progress bar"
-      >
-        <div
-          className="absolute top-0 left-0 h-2 bg-gray-400 rounded-full transition-all"
-          style={{ width: `${(currentTime / duration) * 100 || 0}%` }}
-        />
-
-
-        {/* Thumb */}
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-red rounded-full shadow-md"
-          style={{ left: `${(currentTime / duration) * 100 || 0}%`, transform: 'translate(-50%, -50%)' }}
-        />
-
-
+    <div className="w-full max-w-6xl mx-auto px-4 py-4 bg-gradient-to-t from-black/90 to-transparent shadow-lg rounded text-white">
+      {/* Info del track */}
+      <div className="flex items-center space-x-4 mb-4">
+        {albumArtUrl && (
+          <img
+            src={albumArtUrl}
+            alt={`${albumName} cover`}
+            className="w-16 h-16 rounded-lg object-cover shadow border border-white/20"
+          />
+        )}
+        <div className="flex flex-col min-w-0">
+          <h3 className="text-lg font-semibold truncate">{songTitle || 'Sin título'}</h3>
+          <p className="text-purple-300 text-sm truncate">{artistName || 'Artista desconocido'}</p>
+          <p className="text-gray-400 text-xs truncate">{albumName || 'Álbum desconocido'}</p>
+        </div>
       </div>
 
-      {/* Tiempos */}
-      <div className="flex justify-between text-xs text-white mt-1 mb-4 select-none">
+      {/* Controles de reproducción */}
+      <div className="flex items-center justify-center space-x-9 mb-2">
+        <button
+          onClick={onShuffleToggle}
+          title="Shuffle"
+          className={`hover:text-purple-400 ${isShuffled ? 'text-purple-500' : 'text-gray-400'}`}
+          aria-label="Shuffle"
+        >
+          <Shuffle size={iconSize} />
+        </button>
+        <button onClick={onPrevious} title="Previous" className="hover:text-purple-400" aria-label="Previous">
+          <SkipBack size={iconSize} />
+        </button>
+        <button
+          onClick={onPlayPause}
+          title={isPlaying ? 'Pause' : 'Play'}
+          className="text-2xl hover:text-purple-400"
+          aria-label={isPlaying ? 'Pause' : 'Play'}
+        >
+          {isPlaying ? <Pause size={iconSize} /> : <Play size={iconSize} />}
+        </button>
+        <button onClick={onNext} title="Next" className="hover:text-purple-400" aria-label="Next">
+          <SkipForward size={iconSize} />
+        </button>
+        <button
+          onClick={onRepeatToggle}
+          title="Repeat"
+          className={`hover:text-purple-400 ${isRepeating ? 'text-purple-500' : 'text-gray-400'}`}
+          aria-label="Repeat"
+        >
+          <Repeat size={iconSize} />
+        </button>
+      </div>
+
+      {/* Barra de progreso */}
+      <div className="flex items-center space-x-2 text-xs text-gray-300 mb-2">
         <span>{formatTime(currentTime)}</span>
+        <input
+          type="range"
+          min={0}
+          max={duration}
+          value={currentTime}
+          onChange={handleSeekChange}
+          step={0.1}
+          className="flex-1 accent-purple-500"
+        />
         <span>{formatTime(duration)}</span>
       </div>
 
-      {/* Controles */}
-      <div className="flex justify-between items-center">
-        {/* Shuffle */}
-        <button
-          onClick={onShuffleToggle}
-          aria-label="Shuffle"
-          className={`p-2 rounded-full transition-colors ${
-            isShuffled ? 'bg-violet-800 text-white' : 'text-white hover:bg-violet-900'
-          }`}
-        >
-          <Shuffle size={18} />
-        </button>
-
-        {/* Previous */}
-        <button
-          onClick={onPrevious}
-          aria-label="Previous"
-          className="p-2 rounded-full text-white hover:bg-violet-800"
-        >
-          <SkipBack size={18} />
-        </button>
-
-        {/* Play / Pause */}
-        <button
-          onClick={onPlayPause}
-          aria-label={isPlaying ? 'Pause' : 'Play'}
-          className="bg-violet-800 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-violet-900"
-          style={{ width: 56, height: 56 }}
-        >
-          {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-        </button>
-
-        {/* Next */}
-        <button
-          onClick={onNext}
-          aria-label="Next"
-          className="p-2 rounded-full text-white hover:bg-violet-900"
-        >
-          <SkipForward size={18} />
-        </button>
-
-        {/* Repeat */}
-        <button
-          onClick={onRepeatToggle}
-          aria-label="Repeat"
-          className={`p-2 rounded-full transition-colors ${
-            isRepeating ? 'bg-violet-800 text-white' : 'text-white hover:bg-violet-900'
-          }`}
-        >
-          <Repeat size={18} />
-        </button>
-      </div>
-
-      {/* Estilos responsivos para móvil */}
-      <style jsx>{`
-        @media (max-width: 640px) {
-          div[aria-label='Progress bar'] {
-            height: 4px;
-          }
-          div[aria-label='Progress bar'] > div:first-child {
-            height: 4px;
-          }
-          div[aria-label='Progress bar'] > div:last-child {
-            width: 24px !important;
-            height: 24px !important;
-          }
-          .flex.justify-between.items-center {
-            justify-content: space-around;
-          }
-          button[aria-label='Shuffle'],
-          button[aria-label='Repeat'] {
-            padding: 1rem !important;
-          }
-          button[aria-label='Previous'],
-          button[aria-label='Next'] {
-            padding: 1rem !important;
-          }
-          button[aria-label='Play'],
-          button[aria-label='Pause'] {
-            width: 72px !important;
-            height: 72px !important;
-          }
-        }
-      `}</style>
+   
     </div>
   );
 };

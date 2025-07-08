@@ -26,9 +26,9 @@ export const TrackList: React.FC<TrackListProps> = ({
   }, [searchTerm, tracks]);
 
   return (
-    <div className="flex-1 overflow-y-auto p-3 sm:p-4">
+    <div className="flex-1 overflow-y-auto p-3 sm:p-6">
       {/* Header & Search */}
-      <div className="mb-4">
+      <div className="mb-5">
         <h1 className="text-base sm:text-lg font-semibold text-white mb-2">Canciones</h1>
         <div className="relative text-sm">
           <input
@@ -43,7 +43,7 @@ export const TrackList: React.FC<TrackListProps> = ({
       </div>
 
       {/* Track List/Grid */}
-      <div className="space-y-1 lg:space-y-0 lg:grid lg:grid-cols-5 xl:grid-cols-10 gap-2">
+      <div className="space-y-3 lg:space-y-0 lg:grid lg:grid-cols-5 xl:grid-cols-10 gap-2">
         {filteredTracks.map((track) => {
           const isActive = currentTrack?.id === track.id;
 
