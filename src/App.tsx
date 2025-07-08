@@ -23,7 +23,7 @@ function App() {
     playbackSpeed: 1,
     showVideo: true,
   });
-  
+
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [showPlayer, setShowPlayer] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -114,7 +114,7 @@ function App() {
       ...prev,
       currentTime: time,
     }));
-    
+
     // Sync both audio and video
     if (audioRef.current) {
       audioRef.current.currentTime = time;
@@ -152,33 +152,33 @@ function App() {
     }));
   };
 
-const handleEnded = () => {
-  if (playerState.isRepeating) {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.error('Reproducción fallida al repetir:', error);
+  const handleEnded = () => {
+    if (playerState.isRepeating) {
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.error('Reproducción fallida al repetir:', error);
+          });
+        }
+      }
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(error => {
+          console.error('Error al reproducir video al repetir:', error);
         });
       }
-    }
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(error => {
-        console.error('Error al reproducir video al repetir:', error);
-      });
-    }
 
-    setPlayerState(prev => ({
-      ...prev,
-      currentTime: 0,
-      isPlaying: true, // <- Asegura estado "reproduciendo"
-    }));
-  } else {
-    handleNext();
-  }
-};
+      setPlayerState(prev => ({
+        ...prev,
+        currentTime: 0,
+        isPlaying: true,
+      }));
+    } else {
+      handleNext();
+    }
+  };
   useKeyboardShortcuts({
     onPlayPause: handlePlayPause,
     onNext: handleNext,
@@ -188,7 +188,7 @@ const handleEnded = () => {
     onMute: handleMute,
   });
 
- 
+
 
 
 
@@ -199,7 +199,7 @@ const handleEnded = () => {
 
 
 
-        
+
         <div className="container mx-auto max-w-7xl">
           <TrackList
             tracks={tracks}
@@ -241,7 +241,7 @@ const handleEnded = () => {
         onDurationChange={handleDurationChange}
         onEnded={handleEnded}
       />
-      
+
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Back Button */}
         <button
@@ -254,11 +254,11 @@ const handleEnded = () => {
         {/* Main Content */}
         <div className="flex-1 flex flex-col justify-end items-center p-4 sm:p-6">
           <div className="w-full max-w-6xl flex flex-col h-full">
-           
-            
+
+
             <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 flex-1 min-h-0">
               {/* Lyrics Panel */}
-              <div className="flex-1 bg-gradient-to-b from-black/80 to-black/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl  shadow-2xl overflow-hidden">
+              <div className="flex-1 bg-gradient-to-t from-black/50 to-transparent rounded-2xl sm:rounded-3xl  shadow-2xl overflow-hidden">
                 <LyricsDisplay
                   track={playerState.currentTrack}
                   currentTime={playerState.currentTime}
@@ -267,41 +267,41 @@ const handleEnded = () => {
             </div>
 
 
-            
+
           </div>
         </div>
 
         {/* Player Controls */}
-        <div className="pb-safe">
-       <PlayerControls
-  songTitle={playerState.currentTrack?.title || ''}
-  artistName={playerState.currentTrack?.artist || ''}
-  albumName={playerState.currentTrack?.album || ''}
-  albumArtUrl={playerState.currentTrack?.albumArtUrl || ''}
-  isPlaying={playerState.isPlaying}
-  isMuted={playerState.isMuted}
-  volume={playerState.volume}
-  isShuffled={playerState.isShuffled}
-  isRepeating={playerState.isRepeating}
-  playbackSpeed={playerState.playbackSpeed}
-  currentTime={playerState.currentTime}
-  duration={playerState.duration}
-  showVideo={playerState.showVideo}
-  onPlayPause={handlePlayPause}
-  onPrevious={handlePrevious}
-  onNext={handleNext}
-  onVolumeChange={handleVolumeChange}
-  onMute={handleMute}
-  onShuffleToggle={handleShuffleToggle}
-  onRepeatToggle={handleRepeatToggle}
-  onSeek={handleSeek}
-  onSpeedChange={handleSpeedChange}
-  onVideoToggle={handleVideoToggle}
-/>
+        <div className="">
+          <PlayerControls
+            songTitle={playerState.currentTrack?.title || ''}
+            artistName={playerState.currentTrack?.artist || ''}
+            albumName={playerState.currentTrack?.album || ''}
+            albumArtUrl={playerState.currentTrack?.albumArtUrl || ''}
+            isPlaying={playerState.isPlaying}
+            isMuted={playerState.isMuted}
+            volume={playerState.volume}
+            isShuffled={playerState.isShuffled}
+            isRepeating={playerState.isRepeating}
+            playbackSpeed={playerState.playbackSpeed}
+            currentTime={playerState.currentTime}
+            duration={playerState.duration}
+            showVideo={playerState.showVideo}
+            onPlayPause={handlePlayPause}
+            onPrevious={handlePrevious}
+            onNext={handleNext}
+            onVolumeChange={handleVolumeChange}
+            onMute={handleMute}
+            onShuffleToggle={handleShuffleToggle}
+            onRepeatToggle={handleRepeatToggle}
+            onSeek={handleSeek}
+            onSpeedChange={handleSpeedChange}
+            onVideoToggle={handleVideoToggle}
+          />
         </div>
       </div>
 
-      {/* Hidden Media Player for Audio */}
+     
       <MediaPlayer
         track={playerState.currentTrack}
         isPlaying={playerState.isPlaying}

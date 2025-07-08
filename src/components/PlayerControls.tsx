@@ -76,7 +76,7 @@ export const PlayerControls: React.FC<PlayerControlsProps> = ({
   const iconSize = 18;
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-4 bg-gradient-to-t from-black/90 to-transparent shadow-lg rounded text-white">
+    <div className="w-full max-w-6xl mx-auto px-4 py-4 bg-gradient-to-t from-black/100 to-transparent shadow-lg rounded text-white">
       {/* Info del track */}
       <div className="flex items-center space-x-4 mb-4">
         {albumArtUrl && (

@@ -33,7 +33,7 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
       const elementHeight = activeElement.clientHeight;
 
       // Centrar el elemento activo en la vista
-      const scrollTop = elementTop - containerHeight / 2 + elementHeight / 2;
+      const scrollTop = elementTop - containerHeight / 1.5 + elementHeight / 1.5;
       container.scrollTo({ top: scrollTop, behavior: 'smooth' });
     }
   }, [currentLyricIndex]);
@@ -47,7 +47,7 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
   }
 
   return (
-    <div className="relative h-[300px] md:h-[400px] w-full bg-black/10 rounded-lg overflow-hidden">
+    <div className="relative h-[250px] md:h-[400px] w-full bg-black/10 rounded-lg overflow-hidden">
       {/* Header */}
       <div className="px-3 justify-center items-center text-center py-2 border-b  border-white/10 bg-black/20">
         <h3 className="text-white text-sm font-semibold">Lyrics</h3>
@@ -56,7 +56,7 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
       {/* Lyrics content */}
       <div
         ref={lyricsRef}
-        className="overflow-y-auto h-full px-3 py-4 space-y-2 scrollbar-thin scrollbar-thumb-purple-500/40 scrollbar-track-transparent"
+        className="overflow-y-auto h-full px-4 py- space-y-2 bg-black/10 scrollbar-thin scrollbar-thumb-purple-500/40 scrollbar-track-transparent"
         style={{ height: 'calc(100% - 50px)' }}
       >
         {track.lyrics.map((line: LyricLine, index: number) => {
@@ -67,9 +67,9 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
             <div
               key={index}
               ref={isActive ? activeLyricRef : null}
-              className={`text-center text-sm rounded-md px-2 py-1 cursor-pointer transition-all duration-300 ease-in-out
+              className={`text-center text-ls rounded-md px-2 py-1 cursor-pointer transition-all duration-300 ease-in-out
                 ${isActive
-                  ? 'text-white font-bold bg-gradient-to-r from-purple-600/40 to-violet-600/80 shadow'
+                  ? 'text-white  bg-gradient-to-r from-purple-600/40 to-violet-600/80 shadow'
                   : isPast
                   ? 'text-gray-400 opacity-70 hover:opacity-90'
                   : 'text-gray-500 opacity-50 hover:opacity-80'}`}
@@ -82,6 +82,9 @@ export const LyricsDisplay: React.FC<LyricsDisplayProps> = ({ track, currentTime
 
         {/* Espaciador final para scroll */}
         <div className="h-12" />
+
+
+        
       </div>
 
      

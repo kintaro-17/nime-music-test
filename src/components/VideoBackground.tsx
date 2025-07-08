@@ -27,7 +27,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoDuration, setVideoDuration] = useState<number>(0);
 
-  // Cuando cambia el track o el video carga metadata, actualizar duración
+  // Cuando cambia el track o el video carga, actualizar duración
   useEffect(() => {
     if (!videoRef.current) return;
 
@@ -64,7 +64,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
     const video = videoRef.current;
 
     // Si el tiempo actual del audio es mayor que la duración del video,
-    // no tratar de buscar en video (queda mostrando imagen estática)
+    // no tratar de buscar en video
     if (videoDuration === 0) return;
 
     if (currentTime <= videoDuration && Math.abs(video.currentTime - currentTime) > 0.3) {
@@ -72,7 +72,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
     }
   }, [currentTime, showVideo, videoDuration]);
 
-  // Reproducir / pausar video según isPlaying y showVideo
+  // Reproducir / pausar video
   useEffect(() => {
     if (!videoRef.current) return;
 
@@ -93,10 +93,10 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
     }
   }, [volume, playbackSpeed]);
 
-  // Mostrar imagen estática si:
+  // Mostrar imagen estatica si:
   // - No hay video
   // - showVideo es falso
-  // - currentTime > duración video (es decir, música más larga)
+  // - currentTime > duración video 
   if (!track?.videoBgSrc || !showVideo || currentTime > videoDuration) {
     return (
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-violet-900/20">

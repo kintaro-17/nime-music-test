@@ -8,8 +8,8 @@ export const tracks: Track[] = [
     id: 1,
     title: "Kisetsu wa Tsugitsugi Shindeiku",
     artist: "Amazarashi",
-    album: "Senbun no Ichiya Monogatari Starlight", // Puedes actualizar esto si sabes el nombre
-    albumArtUrl: "https://images.rapgenius.com/2b7d557193c81855c972765fe3bbf2b9.500x495x1.jpg", // Sugerida desde el video
+    album: "Senbun no Ichiya Monogatari Starlight",
+    albumArtUrl: "https://images.rapgenius.com/2b7d557193c81855c972765fe3bbf2b9.500x495x1.jpg", 
     audioSrc: "./data/audio/1.mp3",
     videoBgSrc: "./data/videos/1.mp4",
     lyrics: [
@@ -52,7 +52,7 @@ export const tracks: Track[] = [
     title: "veil",
     artist: "Keina Suda",
     album: "Porte",
-    albumArtUrl: "https://www.animate.shop/cdn/shop/products/resize_image_0fc4dd9c-c572-4016-a55f-164732a1931f.jpg?v=1619554916", // Pon aquí la URL correcta si tienes
+    albumArtUrl: "https://www.animate.shop/cdn/shop/products/resize_image_0fc4dd9c-c572-4016-a55f-164732a1931f.jpg?v=1619554916", 
     audioSrc: "./data/videos/veil/music.mp3",
     videoBgSrc: "./data/videos/veil/video.mp4",
     lyrics: [
@@ -60,7 +60,6 @@ export const tracks: Track[] = [
       { time: 3.945, text: "Incluso si maldigo el presente inmutable," },
       { time: 6.847, text: "Las palabras que bailan en el aire" },
       { time: 10.051, text: "Seguramente no pueden salvarte" },
-      // Nota: Aquí líneas con solo créditos de música/película las omito porque no son letra
       { time: 26.968, text: "El paisaje que aún no se puede alcanzar," },
       { time: 29.003, text: "Y el dolor que nunca se calienta" },
       { time: 32.940, text: "Caminaron sobre los hombros del otro," },
@@ -115,7 +114,7 @@ export const tracks: Track[] = [
     title: "Dale Zelda Dale",
     artist: "Exrage",
     album: "Gerudo Valley Fiesta",
-    albumArtUrl: "https://cdn-images.dzcdn.net/images/cover/ec793a2a795f6250f1b50462384b6cec/0x1900-000000-80-0-0.jpg", // reemplaza con URL real si tienes
+    albumArtUrl: "https://cdn-images.dzcdn.net/images/cover/ec793a2a795f6250f1b50462384b6cec/0x1900-000000-80-0-0.jpg", 
     audioSrc: "./data/videos/zelda/music.mp3",
     videoBgSrc: "./data/videos/zelda/video.mp4",
     lyrics: [
@@ -197,7 +196,7 @@ export const tracks: Track[] = [
     title: "Bling-Bang-Bang-Born",
     artist: "Creeoy Nuts",
     album: "Bling-Bang-Bang-Born",
-    albumArtUrl: "https://i.scdn.co/image/ab67616d0000b2732d1c96b6d522cab7c6d77a69", // reemplaza con URL real si tienes
+    albumArtUrl: "https://i.scdn.co/image/ab67616d0000b2732d1c96b6d522cab7c6d77a69", 
     audioSrc: "./data/videos/0002/music.mp3",
     videoBgSrc: "./data/videos/0002/video.mp4",
     lyrics: [
@@ -270,11 +269,11 @@ export const tracks: Track[] = [
   },{
   id: 5,
   title: "オドループ - Oddloop",
-  artist: "frederic",  // Cambia si sabes el artista
-  album: "Frederhythm",   // Cambia si tienes info
-  albumArtUrl: "https://lh3.googleusercontent.com/99vyDvB682fkpXueglRJ8Wiv5W_92cN28FeTGiXYCbGwmabsYDYN3u4Q5CCu2OWJflXLGphFMmWIWEc=w544-h544-l90-rj",        // Pon URL de portada si tienes
-  audioSrc: "./data/videos/0003/music.mp3",  // Cambia según donde esté tu archivo
-  videoBgSrc: "./data/videos/0003/video.mp4", // Cambia según
+  artist: "frederic",  
+  album: "Frederhythm",   
+  albumArtUrl: "https://lh3.googleusercontent.com/99vyDvB682fkpXueglRJ8Wiv5W_92cN28FeTGiXYCbGwmabsYDYN3u4Q5CCu2OWJflXLGphFMmWIWEc=w544-h544-l90-rj",       
+  audioSrc: "./data/videos/0003/music.mp3",  
+  videoBgSrc: "./data/videos/0003/video.mp4", 
   lyrics: [
     { time: 0.000, text: "EL CICLO DE BAILE (ODORUPU)" },
     { time: 22.520, text: "Solo con bailar salgo expulsado" },

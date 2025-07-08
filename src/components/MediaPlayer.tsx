@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Track } from '../types/music';
 
 interface MediaPlayerProps {
@@ -28,8 +28,58 @@ export const MediaPlayer: React.FC<MediaPlayerProps> = ({
 }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-
   const seekingRef = useRef(false);
+  const [mediaReady, setMediaReady] = useState(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    const video = videoRef.current;
+
+    if (!track || !audio) return;
+
+    let audioReady = false;
+    let videoReady = !track.videoBgSrc; // si no hay video
+
+    const checkReady = () => {
+      if (audioReady && videoReady) {
+        setMediaReady(true);
+      }
+    };
+
+    const handleAudioCanPlay = () => {
+      audioReady = true;
+      checkReady();
+    };
+
+    const handleVideoCanPlay = () => {
+      videoReady = true;
+      checkReady();
+    };
+
+    audio.addEventListener('canplaythrough', handleAudioCanPlay);
+    if (video) {
+      video.addEventListener('canplaythrough', handleVideoCanPlay);
+    }
+
+    return () => {
+      audio.removeEventListener('canplaythrough', handleAudioCanPlay);
+      if (video) {
+        video.removeEventListener('canplaythrough', handleVideoCanPlay);
+      }
+    };
+  }, [track]);
+
+  // control de play/pause
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !mediaReady) return;
+
+    if (isPlaying) {
+      audio.play().catch(console.error);
+    } else {
+      audio.pause();
+    }
+  }, [isPlaying, mediaReady]);
 
   useEffect(() => {
     const media = audioRef.current;
@@ -76,30 +126,20 @@ export const MediaPlayer: React.FC<MediaPlayerProps> = ({
     }
   }, [currentTime]);
 
-  // Cargar la pista y reproducir automáticamente al cambiar de track
+  // Reset mediaReady y cargar medios
   useEffect(() => {
-    const media = audioRef.current;
-    if (!media) return;
+    setMediaReady(false);
+    const audio = audioRef.current;
+    const video = videoRef.current;
 
-    if (track) {
-      media.load();
-      media.play().catch(console.error); // Auto play al cambiar pista
+    if (track && audio) {
+      audio.load();
+      if (video && track.videoBgSrc) {
+        video.load();
+      }
     }
   }, [track]);
 
-  // Controlar play/pause sin reiniciar
-  useEffect(() => {
-    const media = audioRef.current;
-    if (!media) return;
-
-    if (isPlaying) {
-      media.play().catch(console.error);
-    } else {
-      media.pause();
-    }
-  }, [isPlaying]);
-
-  // Ajuste volumen
   useEffect(() => {
     const media = audioRef.current;
     if (media) {
@@ -107,7 +147,6 @@ export const MediaPlayer: React.FC<MediaPlayerProps> = ({
     }
   }, [volume, track]);
 
-  // Ajuste velocidad
   useEffect(() => {
     const media = audioRef.current;
     if (media) {
@@ -119,16 +158,12 @@ export const MediaPlayer: React.FC<MediaPlayerProps> = ({
 
   return (
     <div className="hidden">
-      <audio
-        ref={audioRef}
-        src={track.audioSrc}
-        preload="metadata"
-      />
+      <audio ref={audioRef} src={track.audioSrc} preload="auto" />
       {track.videoBgSrc && (
         <video
           ref={videoRef}
           src={track.videoBgSrc}
-          preload="metadata"
+          preload="auto"
           muted={!showVideo}
         />
       )}

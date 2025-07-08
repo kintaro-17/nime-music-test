@@ -155,7 +155,7 @@ video::-webkit-media-controls-enclosure {
 
 /* Tablet optimizations */
 @media (min-width: 641px) and (max-width: 1024px) {
-  /* Adjust spacing for tablet */
+
   .container {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -164,7 +164,7 @@ video::-webkit-media-controls-enclosure {
 
 /* Desktop optimizations */
 @media (min-width: 1025px) {
-  /* Better hover states for desktop */
+
   .hover\:scale-105:hover {
     transform: scale(1.05);
   }
