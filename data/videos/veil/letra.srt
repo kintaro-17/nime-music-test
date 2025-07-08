@@ -1,0 +1,234 @@
+﻿1
+00:00:00,775 --> 00:00:03,945
+<font color="#FEFEFE">Incluso si busco en estos días solemnes,</font>
+
+2
+00:00:03,945 --> 00:00:06,846
+<font color="#FEFEFE">Incluso si maldigo el presente inmutable,</font>
+
+3
+00:00:06,847 --> 00:00:10,051
+<font color="#FEFEFE">Las palabras que bailan en el aire</font>
+
+4
+00:00:10,051 --> 00:00:13,486
+<font color="#FEFEFE">Seguramente no pueden salvarte</font>
+
+5
+00:00:16,490 --> 00:00:16,956
+<font color="#4D5B67">Música     Keina Suda</font>
+
+6
+00:00:16,490 --> 00:00:16,956
+<font color="#BEE1FF">Música     Keina Suda</font>
+
+7
+00:00:19,694 --> 00:00:20,125
+<font color="#4D5B67">Película     Avogado6</font>
+
+8
+00:00:19,694 --> 00:00:20,125
+<font color="#BEE1FF">Película     Avogado6</font>
+
+9
+00:00:26,968 --> 00:00:29,003
+<font color="#FEFEFE">El paisaje que aún no se puede alcanzar,</font>
+
+10
+00:00:29,003 --> 00:00:32,940
+<font color="#FEFEFE">Y el dolor que nunca se calienta</font>
+
+11
+00:00:32,940 --> 00:00:35,309
+<font color="#FEFEFE">Caminaron sobre los hombros del otro,</font>
+
+12
+00:00:35,309 --> 00:00:38,144
+<font color="#FEFEFE">Solo esperando ir a un lugar lejano</font>
+
+13
+00:00:39,313 --> 00:00:42,683
+<font color="#FEFEFE">Las cosas como "esperanza" que me dijiste,</font>
+
+14
+00:00:42,683 --> 00:00:45,753
+<font color="#FEFEFE">Si son los ideales que viste en tus sueños,</font>
+
+15
+00:00:45,753 --> 00:00:48,356
+<font color="#FEFEFE">No importa qué tan frío se ponga,</font>
+
+16
+00:00:48,356 --> 00:00:51,557
+<font color="#FEFEFE">Te mostraré mi amor</font>
+
+17
+00:00:52,093 --> 00:00:54,962
+<font color="#FEFEFE">Incluso si busco en estos días solemnes,</font>
+
+18
+00:00:54,962 --> 00:00:58,131
+<font color="#FEFEFE">Incluso si maldigo el presente inmutable,</font>
+
+19
+00:00:58,265 --> 00:01:01,235
+<font color="#FEFEFE">Las palabras que bailan en el aire</font>
+
+20
+00:01:01,235 --> 00:01:04,370
+<font color="#FEFEFE">Seguramente no pueden salvarte</font>
+
+21
+00:01:04,705 --> 00:01:07,742
+<font color="#FEFEFE">Incluso si grito con mi voz inútil,</font>
+
+22
+00:01:07,742 --> 00:01:11,345
+<font color="#FEFEFE">La noche que lleva el calor aún llegará</font>
+
+23
+00:01:11,345 --> 00:01:14,048
+<font color="#FEFEFE">Incluso si esta mano es liberada,</font>
+
+24
+00:01:14,048 --> 00:01:17,283
+<font color="#FEFEFE">Espero poder caminar hacia adelante</font>
+
+25
+00:01:31,032 --> 00:01:33,067
+<font color="#FEFEFE">Las palabras que no puedo compartir contigo,</font>
+
+26
+00:01:33,067 --> 00:01:36,904
+<font color="#FEFEFE">aumentan cada vez que las noto</font>
+
+27
+00:01:36,904 --> 00:01:39,340
+<font color="#FEFEFE">Enfrenta el presente y sigue cambiando,</font>
+
+28
+00:01:39,340 --> 00:01:42,909
+<font color="#FEFEFE">Quiero que sigas mirando esta figura</font>
+
+29
+00:01:43,144 --> 00:01:46,680
+<font color="#FEFEFE">El futuro del que hablaste solo fue</font>
+
+30
+00:01:46,680 --> 00:01:49,650
+<font color="#FEFEFE">incapaz de ser sostenido por estas manos</font>
+
+31
+00:01:49,650 --> 00:01:52,420
+<font color="#FEFEFE">No importa cómo lo cubras,</font>
+
+32
+00:01:52,420 --> 00:01:56,190
+<font color="#FEFEFE">Detrás de esa sonrisa tuya,</font>
+
+33
+00:01:56,190 --> 00:01:58,825
+<font color="#FEFEFE">Todavía dudas de mí, ¿no?</font>
+
+34
+00:01:59,360 --> 00:02:02,096
+<font color="#FEFEFE">Incluso si es el futuro de estos días interminables,</font>
+
+35
+00:02:02,096 --> 00:02:05,298
+<font color="#FEFEFE">Incluso si es esta melancolía casi insalvable,</font>
+
+36
+00:02:05,466 --> 00:02:08,469
+<font color="#FEFEFE">Cuanto más lucha este dedo</font>
+
+37
+00:02:08,469 --> 00:02:11,637
+<font color="#FEFEFE">Más se desvanecen remotamente</font>
+
+38
+00:02:11,906 --> 00:02:14,842
+<font color="#FEFEFE">No quería saber</font>
+
+39
+00:02:14,842 --> 00:02:18,479
+<font color="#FEFEFE">el color de los recuerdos intocables</font>
+
+40
+00:02:18,479 --> 00:02:21,682
+<font color="#FEFEFE">Aunque ya no estés aquí,</font>
+
+41
+00:02:21,682 --> 00:02:24,785
+<font color="#FEFEFE">Todavía quiero seguir soñando</font>
+
+42
+00:02:24,785 --> 00:02:31,292
+<font color="#FEFEFE">Si la cosificación de la desgracia te ataca,</font>
+
+43
+00:02:31,292 --> 00:02:36,929
+<font color="#FEFEFE">Quiero tocarla con la palma de mi mano</font>
+
+44
+00:02:37,731 --> 00:02:44,105
+<font color="#443831">Si las palabras decoradas que escupes
+son para maldecir a alguien</font>
+
+45
+00:02:37,731 --> 00:02:44,105
+<font color="#FFD2B7">Si las palabras decoradas que escupes
+son para maldecir a alguien</font>
+
+46
+00:02:44,105 --> 00:02:48,173
+<font color="#443831">Entonces mantén la boca cerrada</font>
+
+47
+00:02:44,105 --> 00:02:48,173
+<font color="#FFD2B7">Entonces mantén la boca cerrada</font>
+
+48
+00:02:50,544 --> 00:02:53,347
+<font color="#FEFEFE">Incluso si yo  busca en estos días solemnes,</font>
+
+49
+00:02:53,347 --> 00:02:56,516
+<font color="#FEFEFE">Aunque maldiga el presente inmutable,</font>
+
+50
+00:02:56,684 --> 00:03:00,154
+<font color="#FEFEFE">Las palabras que bailan en el aire</font>
+
+51
+00:03:00,154 --> 00:03:02,855
+<font color="#FEFEFE">Seguramente no pueden salvarte</font>
+
+52
+00:03:03,157 --> 00:03:06,193
+<font color="#FEFEFE">Aunque grite con mi voz inútil,</font>
+
+53
+00:03:06,193 --> 00:03:09,730
+<font color="#FEFEFE">La noche portadora de calor aún llegará</font>
+
+54
+00:03:09,730 --> 00:03:12,966
+<font color="#FEFEFE">Aunque esta mano se suelte,</font>
+
+55
+00:03:12,967 --> 00:03:16,137
+<font color="#FEFEFE">Espero poder caminar hacia adelante</font>
+
+56
+00:03:16,137 --> 00:03:18,873
+<font color="#FEFEFE">Con suerte, sin decir adiós,</font>
+
+57
+00:03:18,873 --> 00:03:22,141
+<font color="#DAC4BB">Un día, nos volveremos a encontrar en algún lugar</font>
+
+58
+00:00:00,001 --> 00:00:00,100
+<i></i>
+
